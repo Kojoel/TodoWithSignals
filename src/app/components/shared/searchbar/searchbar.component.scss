@@ -1,0 +1,11 @@
+@import '../../../../styles/variables';
+
+#searchbar {
+    width: 921px;
+    height: 86px;
+    border-radius: 99px;
+    background: $primary-grey;
+    outline: none;
+    border: none;
+    padding-right: 55px;
+}
