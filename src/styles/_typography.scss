@@ -1,0 +1,6 @@
+@import './variables';
+
+@mixin textFontStyle {
+    color: $text-grey;
+    font-size: 24px;
+}

@@ -1,4 +1,12 @@
 @import '../../../../styles/variables';
+@import '../../../../styles/typography';
+
+
+// hide cancle icon for searh bar
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+  
 
 #searchbar {
     width: 921px;
@@ -7,5 +15,6 @@
     background: $primary-grey;
     outline: none;
     border: none;
-    padding-right: 55px;
+    padding-left: 55px;
+    @include textFontStyle;
 }
