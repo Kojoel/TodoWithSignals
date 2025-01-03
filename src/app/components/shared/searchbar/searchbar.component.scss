@@ -9,9 +9,10 @@ input[type="search"]::-webkit-search-cancel-button {
   
 
 .search-container {
-    width: 921px;
-    height: 86px;
+    width: 100%;
+    height: 67px;
     position: relative;
+    margin-bottom: 30px;
     
     & #searchbar {
         width: 100%;
@@ -25,19 +26,22 @@ input[type="search"]::-webkit-search-cancel-button {
     }
 
     & .search-button {
-        width: 71px;
-        height: 71px;
+        width: 56px;
+        height: 56px;
         border-radius: 50%;
         background: $search-btn-bg;
         position: absolute;
-        top: 7px;
-        right: 8px;
+        top: 5.5px;
+        right: 5.5px;
         display: grid;
         place-items: center;
         cursor: pointer;
         transition: $btn-transition;
 
         & svg.search-icon {
+            width: 36px;
+            height: 30px;
+
             path {
                 transition: .2s ease;
             }

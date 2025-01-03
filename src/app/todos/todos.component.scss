@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/typography';
 
 .container {
     width: 100%;
@@ -6,18 +7,19 @@
     background: $white;
     display: flex;
     justify-content: center;
+    padding-top: 3rem;
 }
 
 .todo-wrapper {
     width: 719px;
-    height: fit-content;
-    border: 1px solid grey;
 }
 
 .todo-list-wrapper {
     width: 100%;
-    height: 100%;
     padding: 0 29px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 
     & .todo-item {
         width: 100%;
@@ -29,5 +31,14 @@
         border-radius: 28px;
         border: $todo-item-border;
         padding: 0 25px;
+
+        & p {
+            @include textFontStyle;
+        }
+
+        & svg.close-btn {
+            width: 19.83px;
+            height: 19.83px;
+        }
     }
 }
