@@ -12,6 +12,7 @@ import { SearchService } from '../services/search.service';
 export class TodosComponent {
 
   isTodoItemHovered: boolean = false;
+  isCheckboxChecked: boolean = false;
 
   searchValueReceived = computed(() => this.searchService.searchValue())
 
@@ -25,10 +26,20 @@ export class TodosComponent {
 
   setToHovered() {
     this.isTodoItemHovered = true;
+
   }
 
   setToNotHovered() {
     this.isTodoItemHovered = false;
+  }
+
+  onCheckboxChange(event: Event) {
+    const checkbox = event.target as HTMLInputElement;
+    if (checkbox.checked) {
+      this.isCheckboxChecked = true;
+    } else {
+      this.isCheckboxChecked = false;
+    }
   }
 
 
