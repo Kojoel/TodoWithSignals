@@ -1,7 +1,16 @@
-<input 
-    type="search" 
-    name="searchbar" 
-    id="searchbar"
-    placeholder="Search todo list"
-    (input)="setInputValue($event)"
->
+<div class="search-container">
+    <input
+        type="search"
+        name="searchbar"
+        id="searchbar"
+        placeholder="Search todo list"
+        (input)="setInputValue($event)"
+    >
+    
+    <div class="search-button">
+        <svg class="search-icon" width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.125 34.4167C27.1228 34.4167 34.4167 27.1228 34.4167 18.125C34.4167 9.12722 27.1228 1.83334 18.125 1.83334C9.12722 1.83334 1.83334 9.12722 1.83334 18.125C1.83334 27.1228 9.12722 34.4167 18.125 34.4167Z" stroke="#818181" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M23.5463 11.7454C22.835 11.0326 21.9899 10.4674 21.0596 10.082C20.1292 9.69672 19.132 9.49892 18.125 9.5C17.118 9.49892 16.1208 9.69672 15.1904 10.082C14.2601 10.4674 13.415 11.0326 12.7037 11.7454M29.8377 29.8378L37.9692 37.9692" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>    
+    </div>
+</div>

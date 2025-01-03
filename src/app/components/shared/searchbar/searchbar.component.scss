@@ -8,13 +8,60 @@ input[type="search"]::-webkit-search-cancel-button {
 }
   
 
-#searchbar {
+.search-container {
     width: 921px;
     height: 86px;
-    border-radius: 99px;
-    background: $primary-grey;
-    outline: none;
-    border: none;
-    padding-left: 55px;
-    @include textFontStyle;
+    position: relative;
+    
+    & #searchbar {
+        width: 100%;
+        height: 100%;
+        border-radius: 99px;
+        background: $primary-grey;
+        outline: none;
+        border: none;
+        padding-left: 55px;
+        @include textFontStyle;
+    }
+
+    & .search-button {
+        width: 71px;
+        height: 71px;
+        border-radius: 50%;
+        background: $search-btn-bg;
+        position: absolute;
+        top: 7px;
+        right: 8px;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: $btn-transition;
+
+        & svg.search-icon {
+            path {
+                transition: .2s ease;
+            }
+        }
+    }
+
+    & .search-button:hover {
+        background: $text-grey;
+
+        & svg.search-icon {
+            path {
+                stroke: $white;
+            }
+        }
+    }
+
+    & .search-button:active {
+        background: $search-btn-bg;
+        transition: .1s ease;
+
+        & svg.search-icon {
+            path {
+                stroke: $text-grey;
+            }
+        }
+    }
 }
