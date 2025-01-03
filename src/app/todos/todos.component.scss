@@ -9,7 +9,25 @@
 }
 
 .todo-wrapper {
-    width: 921px;
-    height: 100%;
+    width: 719px;
+    height: fit-content;
     border: 1px solid grey;
+}
+
+.todo-list-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 0 29px;
+
+    & .todo-item {
+        width: 100%;
+        height: 67.22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: $search-btn-bg;
+        border-radius: 28px;
+        border: $todo-item-border;
+        padding: 0 25px;
+    }
 }
