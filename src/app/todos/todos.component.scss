@@ -1,5 +1,6 @@
 @import '../../styles/variables.scss';
 @import '../../styles/typography';
+@import '../../styles/customCheckbox';
 
 .container {
     width: 100%;
@@ -31,14 +32,44 @@
         border-radius: 28px;
         border: $todo-item-border;
         padding: 0 25px;
+        position: relative;
 
-        & p {
-            @include textFontStyle;
-        }
+        & .todo-content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-        & svg.close-btn {
-            width: 19.83px;
-            height: 19.83px;
+            & p {
+                @include textFontStyle;
+            }
+    
+            & svg.close-btn {
+                width: 19.83px;
+                height: 19.83px;
+            }
         }
+    }
+}
+
+
+
+// checkbox styles
+
+.showCheckbox {
+    input[type="checkbox"] {
+        @include custom-checkbox;
+        position: absolute;
+        left: -15px;
+        transition: $btn-transition;
+    }
+}
+
+.notShowCheckbox {
+    input[type="checkbox"] {
+        @include custom-checkbox-not-hovered;
+        position: absolute;
+        left: -15px;
+        transition: $btn-transition;
     }
 }

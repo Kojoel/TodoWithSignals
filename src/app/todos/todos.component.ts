@@ -11,6 +11,8 @@ import { SearchService } from '../services/search.service';
 })
 export class TodosComponent {
 
+  isTodoItemHovered: boolean = false;
+
   searchValueReceived = computed(() => this.searchService.searchValue())
 
   constructor(
@@ -19,6 +21,14 @@ export class TodosComponent {
     // effect(() => {
     //   console.log("searched item: ", this.searchValueReceived())
     // })
+  }
+
+  setToHovered() {
+    this.isTodoItemHovered = true;
+  }
+
+  setToNotHovered() {
+    this.isTodoItemHovered = false;
   }
 
 
