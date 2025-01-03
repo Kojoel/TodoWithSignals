@@ -15,7 +15,11 @@ export class TodosComponent {
 
   constructor(
     private searchService: SearchService,
-  ) {}
+  ) {
+    // effect(() => {
+    //   console.log("searched item: ", this.searchValueReceived())
+    // })
+  }
 
 
 }
