@@ -1,0 +1,7 @@
+{
+    "todos": [
+      { "id": 1, "text": "Learn Angular", "completed": false, "dateCreated": "28-09-2024" },
+      { "id": 2, "text": "Build a JSON API", "completed": true, "dateCreated": "28-09-2024" }
+    ]
+  }
+  
