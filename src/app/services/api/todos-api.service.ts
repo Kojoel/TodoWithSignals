@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Todos } from '../../models/todos.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class TodosApiService {
   ) { }
 
   getAllTodos() {
-    return this.http.get<any>(this.todosUrl)
+    return this.http.get<Todos[]>(this.todosUrl)
   }
 
 }

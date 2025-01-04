@@ -3,29 +3,29 @@
         <app-searchbar></app-searchbar>
 
         <div class="todo-list-wrapper"
-            [style]=""
+            [style]="" 
         >
+        <!-- (mouseleave)="setToNotHovered(todo.id)" -->
             <div class="todo-item"
-                (mouseover)="setToHovered(1)"
-                (mouseleave)="setToNotHovered(1)"
-                [class]="isTodoItemHovered ? 'showCheckbox' : 'notShowCheckbox' "
-                [style]="{
-                    border: isCheckboxChecked ? '1px solid #d9d9d9' : '1px solid #A052FF',
-                    background: isCheckboxChecked ? '#f3f3f3' : '#F9F4FF',
-                    transition: '.3s ease'
-                }"
+                *ngFor="let todo of allTodos()"
+                (mouseenter)="setToHovered(todo.id)"
+                (mouseleave)="setToNotHovered(todo.id)"
+                [class]="todo.completed ? 'itemNotChecked' : 'itemChecked'"
             >
-                <input 
-                    *ngIf="selectedItemId === 1"
-                    type="checkbox" 
-                    name="todo-checkbox" 
-                    id="todo-checkbox"
-                    [disabled]="!isTodoItemHovered"
-                    (change)="onCheckboxChange($event)"
+            <input 
+            *ngIf="selectedItemId === todo.id"
+            type="checkbox" 
+            name="todo-checkbox" 
+            id="todo-checkbox"
+            [disabled]="!isTodoItemHovered"
+            (change)="onCheckboxChange($event, todo)"
+            [checked]="todo.completed"
                 >
                 <div class="todo-content">
-                    <p>Learn react in one month. lol</p>
-                    <svg *ngIf="isTodoItemHovered && selectedItemId === 1" class="close-btn" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <p
+                        [class.strikethrough]="todo.completed"
+                    >{{ todo.text }}</p>
+                    <svg *ngIf="isTodoItemHovered && selectedItemId === todo.id" class="close-btn" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13.5 0.8125C20.5688 0.8125 26.1875 6.43125 26.1875 13.5C26.1875 20.5688 20.5688 26.1875 13.5 26.1875C6.43125 26.1875 0.8125 20.5688 0.8125 13.5C0.8125 6.43125 6.43125 0.8125 13.5 0.8125ZM8.60625 19.8438L13.5 14.95L18.3937 19.8438L19.8438 18.3937L14.95 13.5L19.8438 8.60625L18.3937 7.15625L13.5 12.05L8.60625 7.15625L7.15625 8.60625L12.05 13.5L7.15625 18.3937L8.60625 19.8438Z" fill="#747474"/>
                     </svg>
                 </div>   
@@ -34,3 +34,12 @@
 
     </div>
 </div>
+
+
+<!-- [class]="isTodoItemHovered ? 'showCheckbox' : 'notShowCheckbox' " -->
+
+<!-- [style]="{
+    border: isCheckboxChecked ? '1px solid #d9d9d9' : '1px solid #A052FF',
+    background: isCheckboxChecked ? '#f3f3f3' : '#F9F4FF',
+    transition: '.3s ease'
+}" -->
