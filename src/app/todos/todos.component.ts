@@ -25,11 +25,7 @@ export class TodosComponent {
   constructor(
     private searchService: SearchService,
     private todoApiService: TodosApiService,
-  ) {
-    // effect(() => {
-    //   console.log("searched item: ", this.searchValueReceived())
-    // })
-  }
+  ) {}
 
   ngOnInit() {
     this.init();
@@ -63,8 +59,10 @@ export class TodosComponent {
       todo.completed = false;
       this.isCheckboxChecked = false;
     }
+  }
 
-    console.log(this.allTodos())
+  deleteItem() {
+    
   }
 
 
