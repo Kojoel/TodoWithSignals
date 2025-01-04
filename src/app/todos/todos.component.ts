@@ -2,6 +2,7 @@ import { Component, computed, effect, signal } from '@angular/core';
 import { SearchbarComponent } from '../components/shared/searchbar/searchbar.component';
 import { SearchService } from '../services/search.service';
 import { NgIf } from '@angular/common';
+import { TodosApiService } from '../services/api/todos-api.service';
 
 @Component({
   selector: 'app-todos',
@@ -16,14 +17,30 @@ export class TodosComponent {
   isCheckboxChecked: boolean = false;
   selectedItemId!: number;
 
+  allTodos = signal([]);
+
   searchValueReceived = computed(() => this.searchService.searchValue())
 
   constructor(
     private searchService: SearchService,
+    private todoApiService: TodosApiService,
   ) {
     // effect(() => {
     //   console.log("searched item: ", this.searchValueReceived())
     // })
+  }
+
+  ngOnInit() {
+    this.init();
+  }
+
+  init() {
+    this.todoApiService.getAllTodos().subscribe({
+      next: (res) => {
+        this.allTodos.set(res);
+        console.log("all todos: ", this.allTodos())
+      }
+    })
   }
 
   setToHovered(id: number) {
