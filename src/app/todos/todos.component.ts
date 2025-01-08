@@ -4,6 +4,7 @@ import { SearchService } from '../services/search.service';
 import { NgFor, NgIf } from '@angular/common';
 import { TodosApiService } from '../services/api/todos-api.service';
 import { Todos } from '../models/todos.interface';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-todos',
@@ -22,13 +23,24 @@ export class TodosComponent {
   addedTodoItem = signal('');
 
   allTodos = signal<Todos[]>([]);
+  filteredTodos = computed(() => {
+    const searchValue = this.searchService.searchValue().toLowerCase(); // Get search value and make it lowercase
+    return this.allTodos().filter((todo) =>
+      todo.text.toLowerCase().includes(searchValue) // Filter todos by text
+    );
+  });
 
   searchValueReceived = computed(() => this.searchService.searchValue())
 
   constructor(
     private searchService: SearchService,
     private todoApiService: TodosApiService,
-  ) {}
+  ) {
+    effect(()=> {
+      console.log(this.allTodos())
+      console.log(this.filteredTodos())
+    })
+  }
 
   ngOnInit() {
     this.init();
@@ -73,7 +85,7 @@ export class TodosComponent {
     const newTodo = {
       completed: false,
       dateCreated: new Date(),
-      id: `${this.allTodos.length + 1}`,
+      id: uuidv4(),
       text: this.addedTodoItem()
     };
 

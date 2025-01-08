@@ -6,7 +6,7 @@
             [style]="" 
         >
             <div class="todo-item"
-                *ngFor="let todo of allTodos()"
+                *ngFor="let todo of filteredTodos()"
                 (mouseenter)="setToHovered(todo.id)"
                 (mouseleave)="setToNotHovered(todo.id)"
                 [class]="todo.completed ? 'itemNotChecked' : 'itemChecked'"
