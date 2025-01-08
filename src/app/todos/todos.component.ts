@@ -75,19 +75,28 @@ export class TodosComponent {
       id: 11,
       text: this.addedTodoItem()
     };
-    
+
     this.todoApiService.addTodoItem(newTodo).subscribe({
       next: (res) => {
-        console.log("response from server: ", res)
+        this.refreshTodos();
       },
       error: (err) => {
-        console.log("error from server: ", err)
+        alert(err)
       }
     })
   }
 
   deleteItem() {
     
+  }
+
+
+  refreshTodos() {
+    this.todoApiService.getAllTodos().subscribe({
+      next: (res) => {
+        this.allTodos.set(res);
+      }
+    });
   }
 
 
