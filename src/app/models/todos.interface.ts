@@ -1,6 +1,6 @@
 export interface Todos {
     completed: boolean,
     dateCreated: Date,
-    id: number,
+    id: string,
     text: string,
 }

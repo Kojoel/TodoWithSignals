@@ -16,7 +16,8 @@ export class TodosComponent {
 
   isTodoItemHovered: boolean = false;
   isCheckboxChecked: boolean = false;
-  selectedItemId!: number | null;
+  selectedItemId!: string | null;
+  clearTextArea: boolean = false;
 
   addedTodoItem = signal('');
 
@@ -41,12 +42,12 @@ export class TodosComponent {
     })
   }
 
-  setToHovered(id: number) {
+  setToHovered(id: string) {
     this.selectedItemId = id;
     this.isTodoItemHovered = true;
   }
 
-  setToNotHovered(id: number) {
+  setToNotHovered(id: string) {
     this.selectedItemId = null;
     this.isTodoItemHovered = false;
   }
@@ -68,17 +69,18 @@ export class TodosComponent {
     this.addedTodoItem.set(todoItem.value)
   }
 
-  addItem () {
+  addItem (textarea: HTMLTextAreaElement) {
     const newTodo = {
       completed: false,
       dateCreated: new Date(),
-      id: 11,
+      id: `${this.allTodos.length + 1}`,
       text: this.addedTodoItem()
     };
 
     this.todoApiService.addTodoItem(newTodo).subscribe({
       next: (res) => {
         this.refreshTodos();
+        textarea.value = '';
       },
       error: (err) => {
         alert(err)
@@ -86,8 +88,12 @@ export class TodosComponent {
     })
   }
 
-  deleteItem() {
-    
+  deleteItem(id: string) {
+    this.todoApiService.deleteTodoItem(id).subscribe({
+      next: (res) => {
+        this.refreshTodos();
+      }
+    })
   }
 
 
