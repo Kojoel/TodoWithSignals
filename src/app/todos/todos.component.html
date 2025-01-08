@@ -46,8 +46,12 @@
             </div>
 
             <div class="add-item-wrapper">
-                <textarea name="add-item-area" id="add-item-area"></textarea>
-                <div class="plus-btn-wrapper">
+                <textarea 
+                    (input)="getTodoItem($event)"
+                    name="add-item-area" 
+                    id="add-item-area"
+                ></textarea>
+                <div class="plus-btn-wrapper" (click)="addItem()">
                     <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13 2.5V23.5M2.5 13H23.5" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>    

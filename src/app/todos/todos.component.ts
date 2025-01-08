@@ -18,6 +18,8 @@ export class TodosComponent {
   isCheckboxChecked: boolean = false;
   selectedItemId!: number | null;
 
+  addedTodoItem = signal('');
+
   allTodos = signal<Todos[]>([]);
 
   searchValueReceived = computed(() => this.searchService.searchValue())
@@ -59,6 +61,29 @@ export class TodosComponent {
       todo.completed = false;
       this.isCheckboxChecked = false;
     }
+  }
+
+  getTodoItem(event: Event) {
+    const todoItem = event.target as HTMLInputElement;
+    this.addedTodoItem.set(todoItem.value)
+  }
+
+  addItem () {
+    const newTodo = {
+      completed: false,
+      dateCreated: new Date(),
+      id: 11,
+      text: this.addedTodoItem()
+    };
+    
+    this.todoApiService.addTodoItem(newTodo).subscribe({
+      next: (res) => {
+        console.log("response from server: ", res)
+      },
+      error: (err) => {
+        console.log("error from server: ", err)
+      }
+    })
   }
 
   deleteItem() {
