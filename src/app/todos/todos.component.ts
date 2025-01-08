@@ -22,12 +22,26 @@ export class TodosComponent {
 
   addedTodoItem = signal('');
 
+  filterState = signal<'all' | 'completed' | 'in progress'>('all');
   allTodos = signal<Todos[]>([]);
+
   filteredTodos = computed(() => {
-    const searchValue = this.searchService.searchValue().toLowerCase(); // Get search value and make it lowercase
-    return this.allTodos().filter((todo) =>
-      todo.text.toLowerCase().includes(searchValue) // Filter todos by text
-    );
+    const searchValue = this.searchService.searchValue().toLowerCase();
+    const filterState = this.filterState();
+
+    return this.allTodos().filter((todo) => {
+      const matchesSearch = todo.text.toLowerCase().includes(searchValue);
+
+      if(filterState === 'completed') {
+        return matchesSearch && todo.completed;
+      }
+      else if(filterState === 'in progress') {
+        return matchesSearch && !todo.completed;
+      }
+      else {
+        return matchesSearch;
+      }
+    });
   });
 
   searchValueReceived = computed(() => this.searchService.searchValue())

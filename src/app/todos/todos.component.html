@@ -40,9 +40,9 @@
                     <p></p>
                 </div>
                 <div class="filter-options">
-                    <span>All</span>
-                    <span>Completed</span>
-                    <span>In Progress</span>
+                    <span (click)="filterState.set('all')">All</span>
+                    <span (click)="filterState.set('completed')">Completed</span>
+                    <span (click)="filterState.set('in progress')">In Progress</span>
                 </div>
             </div>
 
