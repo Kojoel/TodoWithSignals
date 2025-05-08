@@ -1,0 +1,71 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/typography';
+
+
+// hide cancle icon for searh bar
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+  
+
+.search-container {
+    width: 100%;
+    height: 67px;
+    position: relative;
+    margin-bottom: 30px;
+    
+    & #searchbar {
+        width: 100%;
+        height: 100%;
+        border-radius: 99px;
+        background: $primary-grey;
+        outline: none;
+        border: none;
+        padding-left: 55px;
+        @include textFontStyle;
+    }
+
+    & .search-button {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: $search-btn-bg;
+        position: absolute;
+        top: 5.5px;
+        right: 5.5px;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: $btn-transition;
+
+        & svg.search-icon {
+            width: 36px;
+            height: 30px;
+
+            path {
+                transition: .2s ease;
+            }
+        }
+    }
+
+    & .search-button:hover {
+        background: $text-grey;
+
+        & svg.search-icon {
+            path {
+                stroke: $white;
+            }
+        }
+    }
+
+    & .search-button:active {
+        background: $search-btn-bg;
+        transition: .1s ease;
+
+        & svg.search-icon {
+            path {
+                stroke: $text-grey;
+            }
+        }
+    }
+}

@@ -1,0 +1,94 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "text": "Learn Angular",
+      "completed": false,
+      "dateCreated": "28-09-2024"
+    },
+    {
+      "id": "2",
+      "text": "Build a JSON API",
+      "completed": true,
+      "dateCreated": "28-09-2024"
+    },
+    {
+      "id": "3",
+      "text": "Create a responsive website",
+      "completed": false,
+      "dateCreated": "01-10-2024"
+    },
+    {
+      "id": "4",
+      "text": "Write unit tests",
+      "completed": false,
+      "dateCreated": "02-10-2024"
+    },
+    {
+      "id": "5",
+      "text": "Optimize app performance",
+      "completed": true,
+      "dateCreated": "03-10-2024"
+    },
+    {
+      "id": "6",
+      "text": "Prepare for a code review",
+      "completed": false,
+      "dateCreated": "04-10-2024"
+    },
+    {
+      "id": "7",
+      "text": "Study advanced JavaScript",
+      "completed": true,
+      "dateCreated": "05-10-2024"
+    },
+    {
+      "id": "8",
+      "text": "Set up CI/CD pipeline",
+      "completed": false,
+      "dateCreated": "06-10-2024"
+    },
+    {
+      "id": "9",
+      "text": "Research GraphQL",
+      "completed": false,
+      "dateCreated": "07-10-2024"
+    },
+    {
+      "id": "10",
+      "text": "Fix bugs in the user authentication module",
+      "completed": true,
+      "dateCreated": "08-10-2024"
+    },
+    {
+      "id": "11",
+      "text": "Write documentation for API endpoints",
+      "completed": false,
+      "dateCreated": "09-10-2024"
+    },
+    {
+      "id": "12",
+      "text": "Refactor legacy code",
+      "completed": false,
+      "dateCreated": "10-10-2024"
+    },
+    {
+      "id": "13",
+      "text": "Implement unit tests for new features",
+      "completed": true,
+      "dateCreated": "11-10-2024"
+    },
+    {
+      "id": "14",
+      "text": "Research best practices for secure authentication",
+      "completed": false,
+      "dateCreated": "12-10-2024"
+    },
+    {
+      "id": "15",
+      "text": "Prepare presentation for the team meeting",
+      "completed": true,
+      "dateCreated": "13-10-2024"
+    }
+  ]
+}

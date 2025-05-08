@@ -1,0 +1,239 @@
+@import '../../styles/variables.scss';
+@import '../../styles/typography';
+@import '../../styles/customCheckbox';
+
+.container {
+    width: 100%;
+    height: 100%;
+    background: $white;
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
+}
+
+.todo-wrapper {
+    width: 719px;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.todo-list-wrapper {
+    width: 100%;
+    flex: 1;
+
+    padding: 0 29px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+    overflow-y: scroll;
+
+    & .todo-item {
+        // width: 100%;
+        // height: 67.22px;
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
+        // background: $light-purple;
+        // border-radius: 28px;
+        // border: $checked-item-border;
+        // padding: 0 25px;
+        // position: relative;
+    
+        & .todo-content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+    
+            & p {
+                @include textFontStyle;
+            }
+    
+            & svg.close-btn {
+                width: 19.83px;
+                height: 19.83px;
+            }
+        }
+    
+        input[type="checkbox"] {
+            @include custom-checkbox;
+            position: absolute;
+            left: -15px;
+            transition: $btn-transition;
+        }
+    }
+}
+
+
+
+// todo-item style when checkbox is checked
+.itemChecked {
+    width: 100%;
+    height: 52px;
+    min-height: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $light-purple;
+    border-radius: 28px;
+    border: $checked-item-border;
+    padding: 0 25px;
+    position: relative;
+}
+
+.itemNotChecked {
+    width: 100%;
+    height: 52px;
+    min-height: 52px;;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $primary-grey;
+    border-radius: 28px;
+    border: $unchecked-item-border;
+    padding: 0 25px;
+    position: relative;
+}
+
+// todo-item text style when completed
+.strikethrough {
+    text-decoration:line-through;
+}
+
+// styles for filter and add item
+.filter-and-add-item-container {
+    width: 719px;
+    margin-bottom: 20px;
+
+    & .filter-wrapper {
+        width: 100%;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        & .title {
+            width: 117px;
+            height: 44px;
+            position: absolute;
+            z-index: 3;
+
+            & p:first-of-type {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 112px;
+                height: 39px;
+                border-radius: 77px;
+                background: $primary-grey;
+                text-align: center;
+                color: $text-grey;
+                font-size: 20px;
+                position: absolute;
+                top: 4px;
+                left: 4px;
+                z-index: 3;
+            }
+            & p:last-of-type {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 120px;
+                height: 47px;
+                border-radius: 77px;
+                background: $white;
+                text-align: center;
+                color: $text-grey;
+                font-size: 20px;
+                position: absolute;
+                z-index: 0;
+                left: 0;
+                top: 2;
+            }
+        }
+
+        & .filter-options {
+            display: grid;
+            place-items: center;
+            width: fit-content;
+            height: 39px;
+            padding: 0 21px 0 62px;
+            display: flex;
+            gap: 21px;
+            background: $primary-grey;
+            border-radius: 99px;
+            color: $filter-option-text-color;
+            font-size: 13px;
+            position: absolute;
+            left: 110px;
+            position: absolute;
+            z-index: 1;
+            left: 80px;
+
+            & span {
+                cursor: pointer;
+                padding: 5px;
+                transition: $btn-transition;
+            }
+
+            & span:hover {
+                color: $primary-purple;
+            }
+        }
+    } // filter wrapper ends here
+
+    & .add-item-wrapper {
+        width: 719px;
+        height: 98px;
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+
+        & #add-item-area {
+            width: 689px;
+            height: 98px;
+            border-radius: 38px;
+            border: $checked-item-border;
+            background: $light-grey;
+            position: absolute;
+            top: -20px;
+            padding: 2.5rem 6rem 0 2rem;
+            font-family: $font-Inter;
+            font-size: 18px;
+            color: $text-grey;
+        }
+        & #add-item-area:focus {
+            outline: none;
+        }
+
+        & .plus-btn-wrapper {
+            width: 67px;
+            height: 63px;
+            display: grid;
+            place-items: center;
+            border-radius: 29px;
+            background: $primary-purple;
+            position: absolute;
+            right: 20px;
+            top: -2px;
+            cursor: pointer;
+            transition: $btn-transition;
+        }
+
+        & .plus-btn-wrapper:hover {
+            opacity: .9;
+        }
+
+        & .plus-btn-wrapper:active {
+            opacity: .8;
+            transition: .1s ease;
+        }
+    }
+}
+
+
+// styles for filter wrapper 
+
